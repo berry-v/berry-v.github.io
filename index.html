@@ -1026,7 +1026,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/17/interview-question-other/" itemprop="url">面试可能会遇到的问题之 其它</a></h1>
+                <a class="post-title-link" href="/2017/08/17/interview-question-other/" itemprop="url">问题-其它</a></h1>
         
 
         <div class="post-meta">
@@ -1077,50 +1077,14 @@
 
       
         
-          
-            <a id="more"></a>
-<hr>
-<ol>
-<li><p><strong>前端 MV*框架的意义</strong></p>
-<blockquote>
-<p>早期前端都是比较简单，基本以页面为工作单元，内容以浏览型为主，也偶尔有简单的表单操作，基本不太需要框架。<br> 随着 AJAX 的出现，Web2.0的兴起，人们可以在页面上可以做比较复杂的事情了，然后前端框架才真正出现了。<br> 如果是页面型产品，多数确实不太需要它，因为页面中的 JavaScript代码，处理交互的绝对远远超过处理模型的，但是如果是应用软件类产品，这就太需要了。<br> 长期做某个行业软件的公司，一般都会沉淀下来一些业务组件，主要体现在数据模型、业务规则和业务流程，这些组件基本都存在于后端，在前端很少有相应的组织。<br> 从协作关系上讲，很多前端开发团队每个成员的职责不是很清晰，有了前端的 MV框架，这个状况会大有改观。<br> 之所以感受不到 MV*框架的重要性，是因为Model部分代码较少，View的相对多一些。如果主要在操作View和Controller，那当然 jQuery 这类库比较好用了。</p>
-</blockquote>
-</li>
-<li><p><strong>优化首屏白屏问题</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><strong>http和https的区别</strong><blockquote>
-</blockquote>
-</li>
-<li><strong>前端网站有哪些性能优化的方法？</strong><blockquote>
-<p>减少HTTP请求：合并文件、CSS精灵、inline Image<br> 减少DNS查询：DNS查询完成之前浏览器不能从这个主机下载任何任何文件。方法：DNS缓存、将资源分布到恰当数量的主机名，平衡并行下载和DNS查询<br> 避免重定向：多余的中间访问<br> 使Ajax可缓存<br> 非必须组件延迟加载<br> 未来所需组件预加载<br> 减少DOM元素数量<br> 减少iframe数量<br> 将脚本放到页面底部</p>
-</blockquote>
-</li>
-<li><p><strong>webpack的配置文件一般是哪几部分构成的？如何进行项目打包优化？</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>对于前端自动化构建工具的了解</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>git常见的命令</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>demo</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>demo</strong></p>
-<blockquote>
-</blockquote>
-</li>
-</ol>
-<hr>
-
-          
+          <p>框架，应用，优化 等</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/17/interview-question-other/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1186,7 +1150,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/17/interview-question-js/" itemprop="url">面试可能会遇到的问题之 JavaScript 篇</a></h1>
+                <a class="post-title-link" href="/2017/08/17/interview-question-js/" itemprop="url">问题-JavaScript</a></h1>
         
 
         <div class="post-meta">
@@ -1237,203 +1201,14 @@
 
       
         
-          
-            <a id="more"></a>
-<hr>
-<ol>
-<li><p><strong>算法和设计模式</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>变量提升和函数提升 以及区别</strong></p>
-<blockquote>
-<p>函数及变量的声明都将被解释器提升到函数的最顶部。<br> 变量可以在使用后声明，也就是变量可以先使用再声明。同一个变量只会声明一次，其他的会被忽略掉或者覆盖掉。<br> 函数声明式会提升到作用域最前边，并且将声明内容一起提升到最上边。</p>
-</blockquote>
-</li>
-<li><p><strong>宏任务，微任务</strong></p>
-<blockquote>
-<p>宿主环境提供的叫宏任务，由语言标准提供的叫微任务</p>
-</blockquote>
-</li>
-<li><p><strong>promise和timeout异步的区别，执行的顺序</strong></p>
-<blockquote>
-<p>Promise比setTimeout()先执行。<br> 因为Promise定义之后便会立即执行，其后的“.then()”不是正常的异步任务，而是微任务。<br> 而setTimeout()是异步的宏任务。<br> 宏任务追加到下一轮事件循环，微任务追加到本轮事件循环。这意味着，微任务的执行时间一定早宏任务。</p>
-</blockquote>
-</li>
-<li><p><strong>js事件流的过程</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><strong>防抖节流</strong><blockquote>
-</blockquote>
-</li>
-<li><strong>伪代码实现promise</strong><blockquote>
-</blockquote>
-</li>
-<li><strong>浏览器本地存储（请描述一下 cookies, sessionstorage和 localstorage的区别）</strong><blockquote>
-<p>在HTML5中提供了sessionStorage和localStorage。<br> sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁，是会话级别的存储。<br> localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。</p>
-</blockquote>
-</li>
-<li><strong>如何获取某个节点下的所有子节点</strong><blockquote>
-</blockquote>
-</li>
-<li><p><strong>循环一个数组有哪些方法?</strong></p>
-<blockquote>
-<p>for、every、some、forEach、map、filter</p>
-</blockquote>
-</li>
-<li><p><strong>every、some、filter区别</strong></p>
-<blockquote>
-<p>every() 测试一个数组内的所有元素是否都能通过某个指定函数的测试。返回Boolean。<br> filter() 方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素<br> find() 方法返回数组中满足提供的测试函数的第一个元素的值。 </p>
-</blockquote>
-</li>
-<li><strong>for 循环优化（提高效率）</strong><blockquote>
-</blockquote>
-</li>
-<li><strong>列举几个js中( 字符串 || 数组 || 对象)操作函数</strong><blockquote>
-</blockquote>
-</li>
-<li><strong>如果我要循环一个对象，用什么方法比较好。</strong><blockquote>
-</blockquote>
-</li>
-<li><strong>数组去重</strong><blockquote>
-</blockquote>
-</li>
-<li><p><strong>数字数组求和</strong></p>
-<blockquote>
-<p>[10, 9, 8, 7, 6, 5, 4, 3, 2, 1].reduce((a, b) =&gt; a + b )</p>
-</blockquote>
-</li>
-<li><p><strong>二维数组，怎么变成一维数组</strong></p>
-<blockquote>
-<p>[[1,2], [‘a’,’b’], [{name:’张三’}], ‘banabana’].flat()(flat 仅可扁平化二维数组，reduce，reduceRight)</p>
-</blockquote>
-</li>
-<li><strong>类型转换（例举几种强制类型转换和隐式类型转换）</strong><blockquote>
-<p>强制: (通过方法转换)parseInt(), parseFloat(), Number(), String(), toString(), Boolean() 等<br> 隐式: ==, !!, &gt;=, &lt;=, !=, +, -, /, *, %, &gt;, &lt;, +=, -=, –, ++, &amp;&amp;, !, || 等</p>
-</blockquote>
-</li>
-<li><strong>js在什么时候会进行隐式类型转换，转换的结果？</strong><blockquote>
-<p>数值运算、if、调用方法或属性、!和!!</p>
-</blockquote>
-</li>
-<li><strong>js 如何判断网页中图片加载成功或者失败？</strong><blockquote>
-<p>onerror<br> <element onerror="myScript"><br> object.onerror=()=&gt;{myScript};</element></p>
-</blockquote>
-</li>
-<li><strong>解释清楚 null 和 undefined</strong><blockquote>
-<p>null表示一个标识被赋值了，且该标识赋值为“空值”,从逻辑角度来看，null值表示空对象指针；<br> undefined表示声明了标识，但没有给标识赋值。</p>
-</blockquote>
-</li>
-<li><p><strong>如何复制一个对象的值？（深拷贝、浅拷贝）</strong></p>
-<blockquote>
-<p>深浅拷贝<br> Object.assign({}, obj) //只能深拷贝一层对象<br> JSON.parse(JSON.stringify(obj)) //只在纯数据对象时使用<br> 遍历对象属性， 单个赋值<br> var obj2 = {…obj1}</p>
-</blockquote>
-</li>
-<li><p><strong>减少页面加载时间的方法</strong></p>
-<blockquote>
-<p>尽量减少页面中重复的HTTP请求数量<br> 服务器开启gzip压缩<br> css样式的定义放置在文件头部<br> Javascript脚本放在文件末尾<br> 压缩合并Javascript、CSS代码<br> 使用多域名负载网页内的多个文件、图片</p>
-</blockquote>
-</li>
-<li><strong>谈谈This对象的理解</strong><blockquote>
-</blockquote>
-</li>
-<li><strong>Javascript原型,原型链?有什么特点?</strong><blockquote>
-</blockquote>
-</li>
-<li><strong>js中有哪些数据类型，并解释清楚原始数据类型和引用数据类型</strong><blockquote>
-<p>js中共有null,undefined, string,number,boolean,object六种数据类型。<br> 原始数据类型: null,undefined, string,number,boolean<br> 引用数据类型:object<br> 两者的区别：<br> 值存储方式不同：<br> 原始数据类型：将变量名和值都存储在栈内存中<br> 引用数据类型：将变量名存储在栈内存中，将值存储在堆内存中，并在栈内存中存储值的地址，该地址指向堆内存中的值。</p>
-</blockquote>
-</li>
-<li><p><strong>作用域与作用域链和闭包 闭包是什么,有什么特性,对页面有什么影响,简要介绍你理解的闭包</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>原型与原型连</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>谈谈你对前端性能优化的理解</strong></p>
-<blockquote>
-<p> a. 请求数量：合并脚本和样式表，CSS Sprites，拆分初始化负载，划分主域<br> b. 请求带宽：开启GZip，精简JavaScript，移除重复脚本，图像优化，将icon做成字体<br> c. 缓存利用：使用CDN，使用外部JavaScript和CSS，添加Expires头，减少DNS查找，配置ETag，使AjaX可缓存<br> d. 页面结构：将样式表放在顶部，将脚本放在底部，尽早刷新文档的输出<br> e. 代码校验：避免CSS表达式，避免重定向</p>
-</blockquote>
-</li>
-<li><strong>instanceof和typeof</strong><blockquote>
-<p>instanceof 运算符用来检测 constructor.prototype<br> typeof 检查是什么类型的实例</p>
-</blockquote>
-</li>
-<li><strong>new操作符干了什么</strong><blockquote>
-<p>创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型。<br> 属性和方法被加入到 this 引用的对象中。<br> 新创建的对象由 this 所引用，并且最后隐式的返回 this 。</p>
-</blockquote>
-</li>
-<li><strong>说一下自己常用的es6的功能？</strong><blockquote>
-<p>此题是一道开放题，可以自由回答。但要注意像let这种简单的用法就别说了，说一些经常用到并有一定高度的新功能<br> 像module、class、promise等，尽量讲的详细一点。</p>
-</blockquote>
-</li>
-<li><strong>谈谈BOM与DOM区别</strong><blockquote>
-<p>BOM浏览器对象模型<br> DOM文档对象模型</p>
-</blockquote>
-</li>
-<li><strong>apply和call的作用和区别</strong><blockquote>
-<p>作用：动态改变某个类的某个方法的运行环境（执行上下文）<br> 区别：传入参数形式不同</p>
-</blockquote>
-</li>
-<li><strong>创建ajax过程</strong><blockquote>
-<p>(1)创建XMLHttpRequest对象,也就是创建一个异步调用对象.<br> (2)创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息.<br> (3)设置响应HTTP请求状态变化的函数.<br> (4)发送HTTP请求.<br> (5)获取异步调用返回的数据.<br> (6)使用JavaScript和DOM实现局部刷新.</p>
-</blockquote>
-</li>
-<li><strong>正则表达式</strong><blockquote>
-</blockquote>
-</li>
-<li><strong>匹配所有空格的正则表达式</strong><blockquote>
-<p>/\s*/g </p>
-</blockquote>
-</li>
-<li><strong>你都使用哪些工具来测试代码的性能？</strong><blockquote>
-<p>JSPerf, Dromaeo</p>
-</blockquote>
-</li>
-<li><strong>demo</strong><blockquote>
-</blockquote>
-</li>
-</ol>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><ol>
-<li><p><strong>函数对象方法</strong></p>
-<blockquote>
-<p>函数对象的本身属性或方法的优先级要高于原型属性或方法</p>
-</blockquote>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = <span class="number">0</span></span><br><span class="line">    <span class="keyword">this</span>.b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">fn.prototype = &#123;</span><br><span class="line">    b: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.a = <span class="number">20</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</span><br><span class="line">    &#125;,</span><br><span class="line">    c: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.a = <span class="number">30</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myfn = <span class="keyword">new</span> fn()</span><br><span class="line">myfn.b() <span class="comment">// 0</span></span><br><span class="line">myfn.c() <span class="comment">// 30</span></span><br><span class="line">myfn.b() <span class="comment">// 30</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>变量提升和函数提升</strong></p>
-<blockquote>
-<p>引擎在读取js代码的过程中，分为两步。第一个步骤是整个js代码的解析读取，第二个步骤是执行。<br>在JS代码执行之前，浏览器的解析器在遇到 var 变量名 和function 整个函数 提升到当前作用域的最前面。</p>
-<blockquote>
-<p>1.变量提升只会提升变量名的声明，而不会提升变量的赋值初始化。<br> 2.函数提升的优先级大于变量提升的优先级，即函数提升在变量提升之上。</p>
-</blockquote>
-</blockquote>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'World!'</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// var name; // 3.变量提升在此隐式声明，所以name此时=undefined</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> name === <span class="string">'undefined'</span>) &#123; <span class="comment">// 1.先在本函数作用域找变量</span></span><br><span class="line">        <span class="comment">// 4.由于name=undefined，所以这个判断条件成立</span></span><br><span class="line">        <span class="keyword">var</span> name = <span class="string">'Jack'</span> <span class="comment">// 2.变量提升，隐式声明在函数开始时</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Goodbye '</span> + name) <span class="comment">// 5.执行此语句</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Hello '</span> + name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"><span class="comment">// Goodbye Jack</span></span><br></pre></td></tr></table></figure>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="number">2</span>) &#125;</span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">3</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="number">3</span>) &#125;</span><br><span class="line">a()</span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"></span><br><span class="line"><span class="comment">// ƒ a()&#123; console.log(3) &#125; // var a提升,但变量名与函数名相同，故function a()提升时将覆盖var a,又因同名的function函数，后写的将覆盖先写的，所以最后提升的只有function a()&#123; console.log(3) &#125;</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// Uncaught TypeError: a is not a function // 此时a为一个变量，不再是一个函数，所以报错，js中一旦出现报错，后面的语句将不再运行，所以最后一个console.log不进行打印。</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>原型 原型链 new操作符</strong></p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    a = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="number">1</span>) &#125;</span><br><span class="line">&#125;</span><br><span class="line">A.a = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="number">2</span>) &#125;</span><br><span class="line">A.prototype.a = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="number">3</span>) &#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="number">4</span>) &#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="number">5</span>) &#125;</span><br><span class="line"></span><br><span class="line">a() <span class="comment">// 4</span></span><br><span class="line">A() <span class="comment">// 无</span></span><br><span class="line">A.a() <span class="comment">// 2</span></span><br><span class="line">a() <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">new</span> A.a() <span class="comment">// 2  // 直接new的A.a() 执行了A.a 的内容</span></span><br><span class="line"><span class="keyword">new</span> A().a() <span class="comment">// 3 // new的A()产生了一个实例， 再调用了实例上的a方法</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>settimeout与promise执行顺序</strong></p>
-<blockquote>
-<p>Promise比setTimeout()先执行。<br> 因为Promise定义之后便会立即执行，其后的.then()是异步里面的微任务。<br> 而setTimeout()是异步的宏任务。</p>
-</blockquote>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="number">4</span>) &#125;, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">        i === <span class="number">9999</span> &amp;&amp; resolve()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">5</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>js实现类似于add(1)(2)(3)调用方式的方法</strong></p>
-<blockquote>
-<p>实现函数f<br> f(1) = 1<br> f(1)(2) = 3<br> f(1)(2)…(n) = 1+2+…+n</p>
-</blockquote>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sum = x</span><br><span class="line">    <span class="keyword">var</span> tmp = <span class="function"><span class="keyword">function</span> (<span class="params">y</span>) </span>&#123;</span><br><span class="line">        sum = sum + y</span><br><span class="line">        <span class="keyword">return</span> tmp</span><br><span class="line">    &#125;</span><br><span class="line">    tmp.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sum</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> tmp</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(f(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)) <span class="comment">// 6</span></span><br><span class="line"><span class="built_in">console</span>.log(f(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)(<span class="number">4</span>)) <span class="comment">// 10</span></span><br><span class="line"><span class="comment">// 首先要一个数记住每次的计算值，所以使用了闭包，在tmp中记住了x的值，第一次调用f(),初始化了tmp，并将x保存在tmp的作用链中，然后返回tmp保证了第二次调用的是tmp函数，后面的计算都是在调用tmp, 因为tmp也是返回的自己，保证了第二次之后的调用也是调用tmp，而在tmp中将传入的参数与保存在作用链中x相加并付给sum，这样就保证了计算</span></span><br><span class="line"><span class="comment">// 但是在计算完成后还是返回了tmp这个函数，这样就获取不到计算的结果了，我们需要的结果是一个计算的数字，首先要知道JavaScript中，打印和相加计算，会分别调用toString或valueOf函数，所以我们重写tmp的toString和valueOf方法，返回sum的值</span></span><br></pre></td></tr></table></figure>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result = <span class="function">(<span class="params">y</span>) =&gt;</span> f(x+y)</span><br><span class="line">    result.toString = <span class="function"><span class="params">()</span> =&gt;</span> x</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<hr>
-
-          
+          <p>JavaScript相关</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/17/interview-question-js/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1499,7 +1274,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/17/interview-question-css/" itemprop="url">面试可能会遇到的问题之 CSS 篇</a></h1>
+                <a class="post-title-link" href="/2017/08/17/interview-question-css/" itemprop="url">问题-CSS</a></h1>
         
 
         <div class="post-meta">
@@ -1550,146 +1325,14 @@
 
       
         
-          
-            <a id="more"></a>
-<hr>
-<ol>
-<li><p><strong>页面渲染流程</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>link和@import区别用法</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>src和url的区别</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>盒子垂直水平居中</strong></p>
-<blockquote>
-<p>定位 盒子宽高已知， </p>
-<pre><code>position: absolute; 
-left: 50%; 
-top: 50%; 
-margin-left:-自身一半宽度; 
-margin-top: -自身一半高度;
-</code></pre><p> table-cell布局 </p>
-<pre><code>父级 
-    display: table-cell; 
-    vertical-align: middle;  
-子级 
-    margin: 0 auto;
-</code></pre><p> 定位 + transform ; 适用于 子盒子 宽高不定时；</p>
-<pre><code>position: relative / absolute;
-/*top和left偏移各为50%*/
-top: 50%;
-left: 50%;
-/*translate(-50%,-50%) 偏移自身的宽和高的-50%*/
-transform: translate(-50%, -50%); 注意这里启动了3D硬件加速哦 会增加耗电量的 （至于何是3D加速 请看浏览器进程与线程篇）
-</code></pre><p> flex 布局</p>
-<pre><code>display: flex; /*flex 布局*/
-align-items: center; /*实现垂直居中*/
-justify-content: center; /*实现水平居中*/
-</code></pre><p> 水平方向上居中</p>
-<pre><code>margin-left : 50% ; transform: translateX(-50%);
-</code></pre></blockquote>
-</li>
-<li><p><strong>CSS清除浮动的几种方法(至少两种)</strong></p>
-<blockquote>
-<p>使用带 clear 属性的空标签<br> 使用 css 的 overflow 属性<br> 使用 css 的伪元素:after 和 zoom(zoom 是为了兼容 IE6，7)<br> 以浮制浮（父级同时浮动）<br> 给父元素添加 overflow：hidden 清除浮动方法;<br> 父级设置成 inline-block;<br> 结尾处加 br 标签 clear:both。</p>
-</blockquote>
-</li>
-<li><p><strong>CSS隐藏元素的几种方法(至少说出三种)</strong></p>
-<blockquote>
-<p>display:none; visiblity:hidden; height:0; opacity: 0;</p>
-</blockquote>
-</li>
-<li><p><strong>介绍一下CSS的盒子模型?</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>列举几个可以继承的和不可继承的 css 属性</strong></p>
-<blockquote>
-<p>可继承的属性：font-size, font-family, color<br> 不可继承的样式：border, padding, margin, width, height</p>
-</blockquote>
-</li>
-<li><p><strong>画一条0.5px的直线</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>画一个三角形？</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>css sprite是什么？有什么优缺点？</strong></p>
-<blockquote>
-<p>概念：将多个小图片拼接到一个图片中。通过background-position和元素尺寸调节需要显示的背景图案。<br> 优点：</p>
-<pre><code>。减少HTTP请求数，极大地提高页面加载速度
-。增加图片信息重复度，提高压缩比，减少图片大小
-。更换风格方便，只需在一张或几张图片上修改颜色或样式即可实现
-</code></pre><p> 缺点：</p>
-<pre><code>。图片合并麻烦
-。维护麻烦，修改一个图片可能需要从新布局整个图片，样式
-</code></pre></blockquote>
-</li>
-<li><p><strong>calc, support, media各自的含义及用法？</strong></p>
-<blockquote>
-<p>@support主要是用于检测浏览器是否支持CSS的某个属性，其实就是条件判断，如果支持某个属性，你可以写一套样式，如果不支持某个属性，你也可以提供另外一套样式作为替补。<br> calc() 函数用于动态计算长度值。 calc()函数支持 “+”, “-“, “*”, “/“ 运算；<br> @media 查询，你可以针对不同的媒体类型定义不同的样式。</p>
-</blockquote>
-</li>
-<li><p><strong>position:absolute和float属性的异同?</strong></p>
-<blockquote>
-<p>共同点：对内联元素设置float和absolute属性，可以让元素脱离文档流，并且可以设置其宽高。<br> 不同点：float仍会占据位置，absolute会覆盖文档流中的其他元素。</p>
-</blockquote>
-</li>
-<li><p><strong>CSS的盒子模型？</strong></p>
-<blockquote>
-<p>（1）两种， IE 盒子模型、标准 W3C 盒子模型；IE 的content部分包含了 border 和 pading;<br> （2）盒模型： 内容(content)、填充(padding)、边界(margin)、 边框(border).</p>
-</blockquote>
-</li>
-<li><p><strong>介绍一下box-sizing属性？</strong></p>
-<blockquote>
-<p>box-sizing属性主要用来控制元素的盒模型的解析模式。默认值是content-box。<br> content-box：让元素维持W3C的标准盒模型。元素的宽度/高度由border + padding + content的宽度/高度决定，设置width/height属性指的是content部分的宽/高<br> border-box：让元素维持IE传统盒模型（IE6以下版本和IE6~7的怪异模式）。设置width/height属性指的是border + padding + content<br> 标准浏览器下，按照W3C规范对盒模型解析，一旦修改了元素的边框或内距，就会影响元素的盒子尺寸，就不得不重新计算元素的盒子尺寸，从而影响整个页面的布局。</p>
-</blockquote>
-</li>
-<li><p><strong>如何实现半透明边框？</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>圆角边框？</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>怎么添加阴影？</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>rgba</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>谈谈css3动画transform、animation和transition？</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>用过它们哪些属性？</strong></p>
-<blockquote>
-<p>transition需要触发一个事件才会随着时间改变其CSS属性<br> animation在不需要触发任何事件的情况下，也可以显式的随时间变化来改变元素CSS属性</p>
-</blockquote>
-</li>
-<li><p><strong>less？sass？用过哪些？介绍下它们的特性</strong></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p><strong>demo</strong></p>
-<blockquote>
-</blockquote>
-</li>
-</ol>
-<hr>
-
-          
+          <p>CSS相关</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/17/interview-question-css/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1755,7 +1398,7 @@ justify-content: center; /*实现水平居中*/
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/17/interview-question-react/" itemprop="url">面试可能会遇到的问题之 REACT 篇</a></h1>
+                <a class="post-title-link" href="/2017/08/17/interview-question-react/" itemprop="url">问题-REACT</a></h1>
         
 
         <div class="post-meta">
@@ -1806,22 +1449,14 @@ justify-content: center; /*实现水平居中*/
 
       
         
-          
-            <a id="more"></a>
-<hr>
-<ol>
-<li><strong>react中setstate实现原理</strong><blockquote>
-</blockquote>
-</li>
-</ol>
-<ol>
-<li><strong>demo</strong><blockquote>
-</blockquote>
-</li>
-</ol>
-<hr>
-
-          
+          <p>react 相关</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/17/interview-question-react/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

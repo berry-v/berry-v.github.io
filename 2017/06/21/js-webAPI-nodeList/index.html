@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="写此文的初始原因是因为一场有对有错的争论开始的, 关于一场获取子节点返回的值的类型的争论~ ~ ~开始的时候我认为是一个array集合, 却发现array的对象方法都不能使用, 后来看到他的类型发现他并不是一个数组~所以以此文,总结一下.">
+<meta name="description" content="本篇存在的初始原因是因为一场有对有错的争论开始的, 关于一场获取子节点返回的值的类型的争论~ ~ ~开始的时候我认为是一个array集合, 却发现array的对象方法都不能使用, 后来看到他的类型发现他并不是一个数组~">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对NodeList的理解">
 <meta property="og:url" content="http://yoursite.com/2017/06/21/js-webAPI-nodeList/index.html">
 <meta property="og:site_name" content="半未">
-<meta property="og:description" content="写此文的初始原因是因为一场有对有错的争论开始的, 关于一场获取子节点返回的值的类型的争论~ ~ ~开始的时候我认为是一个array集合, 却发现array的对象方法都不能使用, 后来看到他的类型发现他并不是一个数组~所以以此文,总结一下.">
+<meta property="og:description" content="本篇存在的初始原因是因为一场有对有错的争论开始的, 关于一场获取子节点返回的值的类型的争论~ ~ ~开始的时候我认为是一个array集合, 却发现array的对象方法都不能使用, 后来看到他的类型发现他并不是一个数组~">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-18T06:56:40.699Z">
+<meta property="og:updated_time" content="2021-02-22T05:38:18.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对NodeList的理解">
-<meta name="twitter:description" content="写此文的初始原因是因为一场有对有错的争论开始的, 关于一场获取子节点返回的值的类型的争论~ ~ ~开始的时候我认为是一个array集合, 却发现array的对象方法都不能使用, 后来看到他的类型发现他并不是一个数组~所以以此文,总结一下.">
+<meta name="twitter:description" content="本篇存在的初始原因是因为一场有对有错的争论开始的, 关于一场获取子节点返回的值的类型的争论~ ~ ~开始的时候我认为是一个array集合, 却发现array的对象方法都不能使用, 后来看到他的类型发现他并不是一个数组~">
 
 
 
@@ -330,7 +330,8 @@
       
 
       
-        <p>写此文的初始原因是因为一场有对有错的争论开始的, 关于一场获取子节点返回的值的类型的争论~ ~ ~<br>开始的时候我认为是一个array集合, 却发现array的对象方法都不能使用, 后来看到他的类型发现他并不是一个数组~<br>所以以此文,总结一下.<br><a id="more"></a></p>
+        <p>本篇存在的初始原因是因为一场有对有错的争论开始的, 关于一场获取子节点返回的值的类型的争论~ ~ ~<br>开始的时候我认为是一个array集合, 却发现array的对象方法都不能使用, 后来看到他的类型发现他并不是一个数组~</p>
+<a id="more"></a>
 <h3 id="为什么NodeList不是数组"><a href="#为什么NodeList不是数组" class="headerlink" title="为什么NodeList不是数组:"></a>为什么NodeList不是数组:</h3><p>开始的时候我log()出来是[xx, xx, xx]这种形式的, 于是就以为是array类型的,但是在看返回结果的原型的时候发现array的特有方法它却没有,果然还是太年轻, 太傻太天真~~</p>
 <p><style type="text/css">.proto{display: flex; padding: 10px; border: 2px solid #daf7f2;} .proto li{list-style: none !important;} .proto h4{margin: 0;}</style></p>
 <p><ul class="proto"><li style="flex: 1 1 auto;"><h4>Array 的原型大概是这样的</h4>concat : function concat()<br>    constructor : function Array()<br>    copyWithin : function copyWithin()<br>    entries : function entries()<br>    every : function every()<br>    fill : function fill()<br>    filter : function filter()<br>    find : function find()<br>    findIndex : function findIndex()<br>    forEach : function forEach()<br>    includes : function includes()<br>    indexOf : function indexOf()<br>    join : function join()<br>    keys : function keys()<br>    lastIndexOf : function lastIndexOf()<br>    length : 0<br>    map : function map()<br>    pop : function pop()<br>    push : function push()<br>    reduce : function reduce()<br>    reduceRight : function reduceRight()<br>    reverse : function reverse()<br>    shift : function shift()<br>    slice : function slice()<br>    some : function some()<br>    sort : function sort()<br>    splice : function splice()<br>    toLocaleString : function toLocaleString()<br>    toString : function toString()<br>    unshift : function unshift()<br>    Symbol(Symbol.iterator) : function values()<br>    Symbol(Symbol.unscopables) : Object</li><li style="flex: 1 1 auto;"><h4>NodeList 的原型大概是这样的</h4>entries : function entries()<br>    forEach : function forEach()<br>    item : function item()<br>    keys : function keys()<br>    length : (…)<br>    values : function values()<br>    constructor : function NodeList()<br>    Symbol(Symbol.iterator) : function values()<br>    Symbol(Symbol.toStringTag) : “NodeList”<br>    get length : function ()</li></ul><br>不难看出, NodeList的方法还是挺少的.</p>
@@ -374,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/19/css-flex/" rel="next" title="flex (Flexible Box弹性盒模型) 弹性布局 学习之路~">
-                <i class="fa fa-chevron-left"></i> flex (Flexible Box弹性盒模型) 弹性布局 学习之路~
+              <a href="/2017/06/19/css-flex/" rel="next" title="flex (Flexible Box弹性盒模型) 弹性布局">
+                <i class="fa fa-chevron-left"></i> flex (Flexible Box弹性盒模型) 弹性布局
               </a>
             
           </div>
