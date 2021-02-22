@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript,调试,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="话说, 为什么想写这个呢, 额, 只是想起来写什么就写什么. 想当年(2013年), 刚从学校毕业还不是很明白前端是做什么, 就开始慢慢做前端, 一开始连console debugger是什么都不知道, 咳咳, 尴尬 , 不过都不重要, 现已过去好多年.千万不要吐槽我, ~ ~ ~ 后续~ ~ 没有后续 ~ ~ ~">
+<meta name="keywords" content="JavaScript,调试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="console 和 debugger 调试">
+<meta property="og:url" content="http://yoursite.com/2017/06/26/js-debug/index.html">
+<meta property="og:site_name" content="半未">
+<meta property="og:description" content="话说, 为什么想写这个呢, 额, 只是想起来写什么就写什么. 想当年(2013年), 刚从学校毕业还不是很明白前端是做什么, 就开始慢慢做前端, 一开始连console debugger是什么都不知道, 咳咳, 尴尬 , 不过都不重要, 现已过去好多年.千万不要吐槽我, ~ ~ ~ 后续~ ~ 没有后续 ~ ~ ~">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-08-18T06:55:10.005Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="console 和 debugger 调试">
+<meta name="twitter:description" content="话说, 为什么想写这个呢, 额, 只是想起来写什么就写什么. 想当年(2013年), 刚从学校毕业还不是很明白前端是做什么, 就开始慢慢做前端, 一开始连console debugger是什么都不知道, 咳咳, 尴尬 , 不过都不重要, 现已过去好多年.千万不要吐槽我, ~ ~ ~ 后续~ ~ 没有后续 ~ ~ ~">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/26/js-debug/">
+
+
+
+
+
+  <title>console 和 debugger 调试 | 半未</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">半未</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">半未</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/26/js-debug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="半未">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/images/berry.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="半未">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">console 和 debugger 调试</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-26T18:49:33+08:00">
+                2017-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>话说, 为什么想写这个呢, 额, 只是想起来写什么就写什么.</p>
+<p>想当年(2013年), 刚从学校毕业还不是很明白前端是做什么, 就开始慢慢做前端, 一开始连console debugger是什么都不知道, 咳咳, 尴尬 , 不过都不重要, 现已过去好多年.<br>千万不要吐槽我, ~ ~ ~ 后续~ ~ 没有后续 ~ ~ ~<br><a id="more"></a></p>
+<h2 id="debugger"><a href="#debugger" class="headerlink" title="debugger;"></a>debugger;</h2><p>直接在代码中想设置断点的地方加上debugger; 刷新就能看到效果. 适用于同一个地方需要调试多次的时候, 毕竟写在代码中, 每次都会到调试模式.<br>其实我觉得这都是空话, 啥时候都可以用. 有人会觉得不如直接在浏览器上打断点, 但是有些情况呢, 他还是很实用的,具体情况具体取舍嘛.</p>
+<h2 id="console-window上的对象-用于开发环境中"><a href="#console-window上的对象-用于开发环境中" class="headerlink" title="console(window上的对象, 用于开发环境中)"></a>console(window上的对象, 用于开发环境中)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">对象原型如下:</span><br><span class="line">assert : <span class="function"><span class="keyword">function</span> <span class="title">assert</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">clear</span> : <span class="title">function</span> <span class="title">clear</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">count</span> : <span class="title">function</span> <span class="title">count</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">debug</span> : <span class="title">function</span> <span class="title">debug</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">dir</span> : <span class="title">function</span> <span class="title">dir</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">dirxml</span> : <span class="title">function</span> <span class="title">dirxml</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">error</span> : <span class="title">function</span> <span class="title">error</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">group</span> : <span class="title">function</span> <span class="title">group</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">groupCollapsed</span> : <span class="title">function</span> <span class="title">groupCollapsed</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">groupEnd</span> : <span class="title">function</span> <span class="title">groupEnd</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">info</span> : <span class="title">function</span> <span class="title">info</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">log</span> : <span class="title">function</span> <span class="title">log</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">markTimeline</span> : <span class="title">function</span> <span class="title">markTimeline</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">memory</span> : (<span class="params">...</span>)</span></span><br><span class="line"><span class="function"><span class="title">profile</span> : <span class="title">function</span> <span class="title">profile</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">profileEnd</span> : <span class="title">function</span> <span class="title">profileEnd</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">table</span> : <span class="title">function</span> <span class="title">table</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">time</span> : <span class="title">function</span> <span class="title">time</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">timeEnd</span> : <span class="title">function</span> <span class="title">timeEnd</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">timeStamp</span> : <span class="title">function</span> <span class="title">timeStamp</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">timeline</span> : <span class="title">function</span> <span class="title">timeline</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">timelineEnd</span> : <span class="title">function</span> <span class="title">timelineEnd</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">trace</span> : <span class="title">function</span> <span class="title">trace</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"><span class="title">warn</span> : <span class="title">function</span> <span class="title">warn</span>(<span class="params"></span>)</span></span><br></pre></td></tr></table></figure>
+<h3 id="log"><a href="#log" class="headerlink" title="log()"></a>log()</h3><p>在我看来是最常用的了, 在我调试的时候, debugger和console.log()是我最常用的东西.</p>
+<h3 id="assert"><a href="#assert" class="headerlink" title="assert()"></a>assert()</h3><p>根据第一个参数的true/false来决定是否抛出异常，false抛出异常并在控制台输出错误信息.</p>
+<h3 id="clear"><a href="#clear" class="headerlink" title="clear()"></a>clear()</h3><p>清空控制台打印的信息, 一般在浏览器调试模式中的直接使用.</p>
+<h3 id="count"><a href="#count" class="headerlink" title="count();"></a>count();</h3><p>输出传入的参数以及调用的次数, 参数为字符串, 如果没有参数仅输出次数.</p>
+<h3 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h3><p>≈≈log() 输出的信息和log()没看出差别</p>
+<h3 id="dir"><a href="#dir" class="headerlink" title="dir()"></a>dir()</h3><p>输出一个JavaScript对象的属性和属性值.</p>
+<h3 id="dirxml"><a href="#dirxml" class="headerlink" title="dirxml()"></a>dirxml()</h3><p>显示网页某个节点(node)包含的html或者xml代码</p>
+<h3 id="error"><a href="#error" class="headerlink" title="error();"></a>error();</h3><p>输出一条错误消息, 参数可不固定, 多个会相加</p>
+<h3 id="group"><a href="#group" class="headerlink" title="group"></a>group</h3><p>打印树状结构(把所有打印的信息按照树状图的形式展示出来)，会以groupEnd结束;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'一'</span>);</span><br><span class="line"><span class="built_in">console</span>.group();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'二'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'二'</span>);</span><br><span class="line"><span class="built_in">console</span>.group();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'三'</span>);</span><br><span class="line"><span class="built_in">console</span>.groupEnd();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'二'</span>);</span><br><span class="line"><span class="built_in">console</span>.groupEnd();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'一'</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="groupCollapsed"><a href="#groupCollapsed" class="headerlink" title="groupCollapsed"></a>groupCollapsed</h3><p>和group用发现同, 所有打印的信息是折叠显示的</p>
+<h3 id="groupEnd"><a href="#groupEnd" class="headerlink" title="groupEnd"></a>groupEnd</h3><p>结束group和groupCollapsed</p>
+<h3 id="info"><a href="#info" class="headerlink" title="info()"></a>info()</h3><p>输出和log相差无几, 只是前面多了一个图标.(具体应用场景不明)</p>
+<h3 id="table"><a href="#table" class="headerlink" title="table"></a>table</h3><p>把数据以表格的形式输出(输出集合表格信息的时候简直完美)</p>
+<h3 id="time"><a href="#time" class="headerlink" title="time()"></a>time()</h3><p>启动一个定时器, 可以用来标示开始时间, 然后计算出代码运行占用的时长, 和timeEnd()配合使用, 当使用当前参数书调用timeEnd()时, 输出他们的毫秒差值(即计时器所记时间)</p>
+<h3 id="timeEnd"><a href="#timeEnd" class="headerlink" title="timeEnd()"></a>timeEnd()</h3><p>配合time()使用</p>
+<h3 id="warn"><a href="#warn" class="headerlink" title="warn()"></a>warn()</h3><p>输出一条警告信息</p>
+<h3 id="trace"><a href="#trace" class="headerlink" title="trace()"></a>trace()</h3><p>用来追踪函数的调用轨迹, 可很明确的表示出当前方法是由哪些方法调用的, 追踪到最开始调用的方法<br>此方法个人觉得非常有用, 当函数与函数之间调用非常复杂, 然后你又找不到具体是哪些在调用的时候, 可以一目了然, 非常清晰.(虽然在调试模式下的调用栈里边也可以全都显示出来, 看个人习惯)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">method1</span>(<span class="params"></span>)</span>&#123;method2();&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">method2</span>(<span class="params"></span>)</span>&#123;method3();&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">method3</span>(<span class="params"></span>)</span>&#123;method4();&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">method4</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.trace();&#125;</span><br><span class="line">method1();</span><br></pre></td></tr></table></figure></p>
+<h3 id="profile"><a href="#profile" class="headerlink" title="profile()"></a>profile()</h3><p>性能分析, 分析各个函数运行的时间, 结束用profileEnd()<br>运行时会在调试模式(chrome-profiles, firefox-性能)中显示当前运行的信息<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.profile(<span class="string">'性能分析'</span>);</span><br><span class="line">method();</span><br><span class="line"><span class="built_in">console</span>.profileEnd();</span><br></pre></td></tr></table></figure></p>
+<h3 id="profileEnd"><a href="#profileEnd" class="headerlink" title="profileEnd()"></a>profileEnd()</h3><p>配合profile()使用</p>
+<p>以下,  还未察觉具体应用场景(有具体应用了之后再补充):<br>timeStamp<br>timeline<br>timelineEnd<br>markTimeline<br>memory</p>
+<h3 id="console中的占位符"><a href="#console中的占位符" class="headerlink" title="console中的占位符"></a>console中的占位符</h3><p>可使用占位符, 在某些特定情况下还是有用的<br>整数(%d或%i), 字符(%s), 浮点数(%f), 对象(%o)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'%d年%d月%d日'</span>, <span class="number">2017</span>, <span class="number">06</span>, <span class="number">26</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'%s你怎么长得这么好看咧'</span>, <span class="string">'阿萌 '</span>);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/调试/" rel="tag"># 调试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/22/css-responsive-Web-Design/" rel="next" title="关于响应式布局的一些总结">
+                <i class="fa fa-chevron-left"></i> 关于响应式布局的一些总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/06/js-es6-templateLiterals/" rel="prev" title="关于js的模板字符串, es6-templateLiterals">
+                关于js的模板字符串, es6-templateLiterals <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/assets/images/berry.jpg" alt="半未">
+            
+              <p class="site-author-name" itemprop="name">半未</p>
+              <p class="site-description motion-element" itemprop="description">什么乱七八糟的, 想好了再说~~~</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#debugger"><span class="nav-number">1.</span> <span class="nav-text">debugger;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#console-window上的对象-用于开发环境中"><span class="nav-number">2.</span> <span class="nav-text">console(window上的对象, 用于开发环境中)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#log"><span class="nav-number">2.1.</span> <span class="nav-text">log()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assert"><span class="nav-number">2.2.</span> <span class="nav-text">assert()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clear"><span class="nav-number">2.3.</span> <span class="nav-text">clear()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#count"><span class="nav-number">2.4.</span> <span class="nav-text">count();</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#debug"><span class="nav-number">2.5.</span> <span class="nav-text">debug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dir"><span class="nav-number">2.6.</span> <span class="nav-text">dir()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dirxml"><span class="nav-number">2.7.</span> <span class="nav-text">dirxml()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#error"><span class="nav-number">2.8.</span> <span class="nav-text">error();</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#group"><span class="nav-number">2.9.</span> <span class="nav-text">group</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#groupCollapsed"><span class="nav-number">2.10.</span> <span class="nav-text">groupCollapsed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#groupEnd"><span class="nav-number">2.11.</span> <span class="nav-text">groupEnd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#info"><span class="nav-number">2.12.</span> <span class="nav-text">info()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#table"><span class="nav-number">2.13.</span> <span class="nav-text">table</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#time"><span class="nav-number">2.14.</span> <span class="nav-text">time()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#timeEnd"><span class="nav-number">2.15.</span> <span class="nav-text">timeEnd()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#warn"><span class="nav-number">2.16.</span> <span class="nav-text">warn()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#trace"><span class="nav-number">2.17.</span> <span class="nav-text">trace()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#profile"><span class="nav-number">2.18.</span> <span class="nav-text">profile()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#profileEnd"><span class="nav-number">2.19.</span> <span class="nav-text">profileEnd()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console中的占位符"><span class="nav-number">2.20.</span> <span class="nav-text">console中的占位符</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">半未</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="js,优化,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="你有没有见过这样的代码 1234567891011if (type !== &apos;default&apos;) &amp;#123;    slot = &amp;#123;        type: &apos;text&apos;,        value: &apos;gulugulugulu~~~~&apos;    &amp;#125;&amp;#125; else &amp;#123;    slot = &amp;#123;        type: &apos;text&apos;,">
+<meta name="keywords" content="js,优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js 中可优化的代码片段">
+<meta property="og:url" content="http://yoursite.com/2019/05/04/js-code-optimize/index.html">
+<meta property="og:site_name" content="半未">
+<meta property="og:description" content="你有没有见过这样的代码 1234567891011if (type !== &apos;default&apos;) &amp;#123;    slot = &amp;#123;        type: &apos;text&apos;,        value: &apos;gulugulugulu~~~~&apos;    &amp;#125;&amp;#125; else &amp;#123;    slot = &amp;#123;        type: &apos;text&apos;,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-11T02:14:21.135Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js 中可优化的代码片段">
+<meta name="twitter:description" content="你有没有见过这样的代码 1234567891011if (type !== &apos;default&apos;) &amp;#123;    slot = &amp;#123;        type: &apos;text&apos;,        value: &apos;gulugulugulu~~~~&apos;    &amp;#125;&amp;#125; else &amp;#123;    slot = &amp;#123;        type: &apos;text&apos;,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/04/js-code-optimize/">
+
+
+
+
+
+  <title>js 中可优化的代码片段 | 半未</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">半未</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">半未</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/04/js-code-optimize/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="半未">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/images/berry.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="半未">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js 中可优化的代码片段</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-04T10:03:42+08:00">
+                2019-05-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>你有没有见过这样的代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (type !== <span class="string">'default'</span>) &#123;</span><br><span class="line">    slot = &#123;</span><br><span class="line">        type: <span class="string">'text'</span>,</span><br><span class="line">        value: <span class="string">'gulugulugulu~~~~'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    slot = &#123;</span><br><span class="line">        type: <span class="string">'text'</span>,</span><br><span class="line">        value: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>这样的代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (nodeList[i].className === <span class="string">'topLeft'</span>) &#123;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodeList[i].className === <span class="string">'topCenter'</span>) &#123;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodeList[i].className === <span class="string">'topRight'</span>) &#123;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodeList[i].className === <span class="string">'bottomRight'</span>) &#123;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodeList[i].className === <span class="string">'bottomCenter'</span>) &#123;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodeList[i].className === <span class="string">'bottomLeft'</span>) &#123;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodeList[i].className === <span class="string">'middleLeft'</span>) &#123;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodeList[i].className === <span class="string">'middleRight'</span>) &#123;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样的代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ( param === <span class="number">1</span> || param === <span class="number">2</span> || param === <span class="number">3</span> || param === <span class="string">'a'</span> || param === <span class="string">'b'</span> ) &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>我们在编写 js 代码的时候， 可能在很多时候就是写出来的代码， 实现了他的功能然后测一下没问题之后就没有然后了， 但是有时候我们是可以对代码本身做一些优化的，这可能是很小的一些问题， 但是也是很容易被忽略的一些问题。<br>比如时常会遇到一些比如判断啊或者其他的什么的， 在语句逐渐变得多了之后， 代码没处理好可能就会比较臃肿， 然后一时又想不到该怎么去优化，在此提供一些可参考的代码示例</p>
+<h1 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h1><h2 id="if-else"><a href="#if-else" class="headerlink" title="if-else"></a>if-else</h2><p>多数的嵌套判断， 都是可以被简化的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!isEdit) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (type === <span class="string">'stars'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//---------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> isEdit &amp;&amp; type === <span class="string">'stars'</span></span><br></pre></td></tr></table></figure>
+<p>用三元运算符代替简单的, 虽然这个大家都知道， 但是代码中还是很多这种代码， 可以稍微注意一下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (type !== <span class="string">'default'</span>) &#123;</span><br><span class="line">    slot = &#123;</span><br><span class="line">        type: <span class="string">'text'</span>,</span><br><span class="line">        value: <span class="string">'gulugulugulu~~~~'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    slot = &#123;</span><br><span class="line">        type: <span class="string">'text'</span>,</span><br><span class="line">        value: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//---------------------------</span></span><br><span class="line">slot = &#123;</span><br><span class="line">    type: <span class="string">'text'</span>,</span><br><span class="line">    value: type === <span class="string">'default'</span> ? <span class="string">''</span> : attributes.slot</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多个-if…-else-if…"><a href="#多个-if…-else-if…" class="headerlink" title="多个 if… else if…"></a>多个 if… else if…</h2><p>我们在写 js 的时候时长会遇到复杂逻辑判断的情况， 通常大家都会用 if … else if 或者 switch 来实现多个条件的判断， 但是这时就有一个问题， 随着条件越来越多，代码中的 if else/switch 会越来越臃肿， 虽然不会说看不懂， 但是在某些情况下看着就没有那么直观， 比如以下这种</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (nodeList[i].className === <span class="string">'topLeft'</span>) &#123;</span><br><span class="line">    nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">        _this.onDragDown(e, <span class="string">'nw'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodeList[i].className === <span class="string">'topCenter'</span>) &#123;</span><br><span class="line">    nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">        _this.onDragDown(e, <span class="string">'n'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodeList[i].className === <span class="string">'topRight'</span>) &#123;</span><br><span class="line">    nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">        _this.onDragDown(e, <span class="string">'ne'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodeList[i].className === <span class="string">'bottomRight'</span>) &#123;</span><br><span class="line">    nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">        _this.onDragDown(e, <span class="string">'ne'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodeList[i].className === <span class="string">'bottomCenter'</span>) &#123;</span><br><span class="line">    nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">        _this.onDragDown(e, <span class="string">'s'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodeList[i].className === <span class="string">'bottomLeft'</span>) &#123;</span><br><span class="line">    nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">        _this.onDragDown(e, <span class="string">'sw'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodeList[i].className === <span class="string">'middleLeft'</span>) &#123;</span><br><span class="line">    nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">        _this.onDragDown(e, <span class="string">'w'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodeList[i].className === <span class="string">'middleRight'</span>) &#123;</span><br><span class="line">    nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">        _this.onDragDown(e, <span class="string">'e'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">        _this.onDragDown(e, <span class="string">'default'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上边这段代码中， 很多 else if, 根据不同的 class 名称， 传不同参数调用同一个方法<br>改成 switch, 看起来并没有好很多</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (nodeList[i].className) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'topLeft'</span>:</span><br><span class="line">        nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">            _this.onDragDown(e, <span class="string">'nw'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'topCenter'</span>:</span><br><span class="line">        nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">            _this.onDragDown(e, <span class="string">'n'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'topRight'</span>:</span><br><span class="line">        nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">            _this.onDragDown(e, <span class="string">'ne'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'bottomRight'</span>:</span><br><span class="line">        nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">            _this.onDragDown(e, <span class="string">'ne'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'bottomCenter'</span>:</span><br><span class="line">        nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">            _this.onDragDown(e, <span class="string">'s'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'bottomLeft'</span>:</span><br><span class="line">        nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">            _this.onDragDown(e, <span class="string">'sw'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'middleLeft'</span>:</span><br><span class="line">        nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">            _this.onDragDown(e, <span class="string">'w'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'middleRight'</span>:</span><br><span class="line">        nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">            _this.onDragDown(e, <span class="string">'e'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">            _this.onDragDown(e, <span class="string">'default'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>利用 Object<br>将判断条件作为对象的属性名，将处理逻辑作为对象的属性值，在按钮点击的时候，通过对象属性查找的方式来进行逻辑判断。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> classNames = &#123;</span><br><span class="line">    topLeft: <span class="string">'nw'</span>,</span><br><span class="line">    topCenter: <span class="string">'n'</span>,</span><br><span class="line">    topRight: <span class="string">'ne'</span>,</span><br><span class="line">    bottomRight: <span class="string">'ne'</span>,</span><br><span class="line">    bottomCenter: <span class="string">'s'</span>,</span><br><span class="line">    bottomLeft: <span class="string">'sw'</span>,</span><br><span class="line">    middleLeft: <span class="string">'w'</span>,</span><br><span class="line">    middleRight: <span class="string">'s'</span></span><br><span class="line">&#125;</span><br><span class="line">nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">    _this.onDragDown(e, classNames[nodeList[i].className] || <span class="string">'default'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以下是vue源码中存在的这样的代码片段， 先定义了两个对象， 最后再从这里边去获取相应的值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> keyCodes: &#123; [key: string]: number | <span class="built_in">Array</span>&lt;number&gt; &#125; = &#123;</span><br><span class="line">  esc: <span class="number">27</span>,</span><br><span class="line">  tab: <span class="number">9</span>,</span><br><span class="line">  enter: <span class="number">13</span>,</span><br><span class="line">  space: <span class="number">32</span>,</span><br><span class="line">  up: <span class="number">38</span>,</span><br><span class="line">  left: <span class="number">37</span>,</span><br><span class="line">  right: <span class="number">39</span>,</span><br><span class="line">  down: <span class="number">40</span>,</span><br><span class="line">  <span class="keyword">delete</span>: [<span class="number">8</span>, <span class="number">46</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> keyNames: &#123; [key: string]: string | <span class="built_in">Array</span>&lt;string&gt; &#125; = &#123;</span><br><span class="line">  <span class="comment">// #7880: IE11 and Edge use `Esc` for Escape key name.</span></span><br><span class="line">  esc: [<span class="string">'Esc'</span>, <span class="string">'Escape'</span>],</span><br><span class="line">  tab: <span class="string">'Tab'</span>,</span><br><span class="line">  enter: <span class="string">'Enter'</span>,</span><br><span class="line">  <span class="comment">// #9112: IE11 uses `Spacebar` for Space key name.</span></span><br><span class="line">  space: [<span class="string">' '</span>, <span class="string">'Spacebar'</span>],</span><br><span class="line">  <span class="comment">// #7806: IE11 uses key names without `Arrow` prefix for arrow keys.</span></span><br><span class="line">  up: [<span class="string">'Up'</span>, <span class="string">'ArrowUp'</span>],</span><br><span class="line">  left: [<span class="string">'Left'</span>, <span class="string">'ArrowLeft'</span>],</span><br><span class="line">  right: [<span class="string">'Right'</span>, <span class="string">'ArrowRight'</span>],</span><br><span class="line">  down: [<span class="string">'Down'</span>, <span class="string">'ArrowDown'</span>],</span><br><span class="line">  <span class="comment">// #9112: IE11 uses `Del` for Delete key name.</span></span><br><span class="line">  <span class="string">'delete'</span>: [<span class="string">'Backspace'</span>, <span class="string">'Delete'</span>, <span class="string">'Del'</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">genFilterCode</span> (<span class="params">key: string</span>): <span class="title">string</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> keyVal = <span class="built_in">parseInt</span>(key, <span class="number">10</span>)</span><br><span class="line">  <span class="keyword">if</span> (keyVal) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`$event.keyCode!==<span class="subst">$&#123;keyVal&#125;</span>`</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> keyCode = keyCodes[key]</span><br><span class="line">  <span class="keyword">const</span> keyName = keyNames[key]</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="string">`_k($event.keyCode,`</span> +</span><br><span class="line">    <span class="string">`<span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(key)&#125;</span>,`</span> +</span><br><span class="line">    <span class="string">`<span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(keyCode)&#125;</span>,`</span> +</span><br><span class="line">    <span class="string">`$event.key,`</span> +</span><br><span class="line">    <span class="string">`<span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(keyName)&#125;</span>`</span> +</span><br><span class="line">    <span class="string">`)`</span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>用 Map</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> classNames = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">    [<span class="string">'topLeft'</span>, <span class="string">'nw'</span>],</span><br><span class="line">    [<span class="string">'topCenter'</span>, <span class="string">'n'</span>],</span><br><span class="line">    [<span class="string">'topRight'</span>, <span class="string">'ne'</span>],</span><br><span class="line">    [<span class="string">'bottomRight'</span>, <span class="string">'ne'</span>],</span><br><span class="line">    [<span class="string">'bottomCenter'</span>, <span class="string">'s'</span>],</span><br><span class="line">    [<span class="string">'bottomLeft'</span>, <span class="string">'sw'</span>],</span><br><span class="line">    [<span class="string">'middleLeft'</span>, <span class="string">'w'</span>],</span><br><span class="line">    [<span class="string">'middleRight'</span>, <span class="string">'s'</span>]</span><br><span class="line">])</span><br><span class="line">nodeList[i].onmousedown = <span class="function"><span class="params">e</span> =&gt;</span></span><br><span class="line">    _this.onDragDown(e, classNames.get(<span class="string">'middleLeft'</span>) || <span class="string">'default'</span>)</span><br></pre></td></tr></table></figure>
+<p>用 Map 对象和 Object 对象有什么区别呢?<br>一个对象通常都有自己的原型，所以一个对象总有一个”prototype”键。<br>一个对象的键只能是字符串或者 Symbols，但一个 Map 的键可以是任意值。<br>在我看来， 用 Map 和 Object 无论哪个都好， 至少看起来比 if 和 switch 好</p>
+<h2 id="一个-if-中的多个条件判断"><a href="#一个-if-中的多个条件判断" class="headerlink" title="一个 if 中的多个条件判断"></a>一个 if 中的多个条件判断</h2><p>感觉这个也是一个比较常出现的一个情况， 在一个条件判断语句中， 有多重条件可以通过次验证的情况<br>可以利用数组来和数组自带的方法来处理这种情况</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ( param === <span class="number">1</span> || param === <span class="number">2</span> || param === <span class="number">3</span> || param === <span class="string">'a'</span> || param === <span class="string">'b'</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// -------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>].includes(param)) &#123;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ( param !== <span class="number">1</span> &amp;&amp; param !== <span class="number">2</span> &amp;&amp; param !== <span class="number">3</span> &amp;&amp; param !== <span class="string">'a'</span> &amp;&amp; param !== <span class="string">'b'</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// -------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (![<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>].includes(param)) &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="利用数据和符号，-在可读范围内"><a href="#利用数据和符号，-在可读范围内" class="headerlink" title="利用数据和符号， 在可读范围内"></a>利用数据和符号， 在可读范围内</h1><p>在可读范围内使用运算符来简化代码的逻辑<br>比如 !除了做逻辑运算之外还可以用于取得一个布尔值， 举个例子， 在我们现在是用的 iview 的源码中， 就很多关于!!的使用， 原理就是!!可以把数据转换为布尔类型， 然后用于判断</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (value === <span class="string">''</span> || value === <span class="number">0</span> || value === <span class="literal">null</span> || value === <span class="literal">undefined</span>) &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// -----------------------</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!value) &#123; &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是iview里的代码片段</span></span><br><span class="line">classes () &#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        <span class="string">`<span class="subst">$&#123;prefixCls&#125;</span>`</span>,</span><br><span class="line">        <span class="string">`<span class="subst">$&#123;prefixCls&#125;</span>-<span class="subst">$&#123;<span class="keyword">this</span>.shape&#125;</span>`</span>,</span><br><span class="line">        <span class="string">`<span class="subst">$&#123;prefixCls&#125;</span>-<span class="subst">$&#123;<span class="keyword">this</span>.size&#125;</span>`</span>,</span><br><span class="line">        &#123;</span><br><span class="line">            [<span class="string">`<span class="subst">$&#123;prefixCls&#125;</span>-image`</span>]: !!<span class="keyword">this</span>.src,</span><br><span class="line">            [<span class="string">`<span class="subst">$&#123;prefixCls&#125;</span>-icon`</span>]: !!<span class="keyword">this</span>.icon || !!<span class="keyword">this</span>.customIcon</span><br><span class="line">        &#125;</span><br><span class="line">    ];</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>&amp;&amp;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type === <span class="string">'drag'</span> &amp;&amp; dragOver()</span><br></pre></td></tr></table></figure>
+<p>当然， 其他符号也有自己不同的作用， 也可以根据情况使用， 但是一定要保持在可读范围内<br>比如 (n&amp;1 ? ‘奇数’ : ‘偶数’) 可以用来判断基数和偶数，<br>原理是在使用按位与（&amp;）运算时 二进制位数对比都为 1 时才为 1<br>十进制转换为二进制后， 末位数为 1 即奇数， 末位数为 0 即偶数</p>
+<p>同样的按位或（|）运算时 由于浮点数不支持位运算， 所以自动转换为整数， 再进行运算。<br>因为这个特性， 可以取巧， 用来做向下运算。<br>所以（1.23|0）结果是为 1</p>
+<p><b>但是以上两种可读性不是很高， 所以不建议使用</b></p>
+<h1 id="避免使用-for…in"><a href="#避免使用-for…in" class="headerlink" title="避免使用 for…in"></a>避免使用 for…in</h1><p>遍历对象的时候尽可能少的使用 for…in, 因为 for in 会遍历原型上所能枚举的属性，可以用 Object.keys()来遍历</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.keys(objParam).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(objParam[key])</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="尽可能的使用内置方法"><a href="#尽可能的使用内置方法" class="headerlink" title="尽可能的使用内置方法"></a>尽可能的使用内置方法</h1><p>在 js 的内置对象中现在已经提供了很多内置方法并且还有各种高阶函数<br>平时在操作这些内置对象的时候， 如果内置方法可以满足需要的时候， 尽量使用内置方法(大多数时候， 内置方法都可以满足需要)</p>
+<p>以数组为例<br>数组对象<br>比如如下数组去重（虽然有更简单的 Set 可以用于去重）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>]</span><br><span class="line"><span class="keyword">const</span> arr2 = []</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr1.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr1.indexOf(arr1[i]) === i) &#123;</span><br><span class="line">        arr2.push(arr1[i])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ---------------------------</span></span><br><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>]</span><br><span class="line"><span class="keyword">const</span> arr2 = arr1.filter( <span class="function">(<span class="params">element, index, self</span>) =&gt;</span> self.indexOf(element) === index )</span><br><span class="line"><span class="comment">// arr2  [1, 2, 3, 5, 4]</span></span><br><span class="line"><span class="comment">// arr1  [1, 2, 1, 2, 3, 5, 4, 5, 3, 4, 4, 4, 4]</span></span><br></pre></td></tr></table></figure>
+<p>现在有一个数组 [0, 1, 2, 3, 4]，需要计算数组元素的和</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="keyword">let</span> sum = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    sum += arr[i]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//------------------------- </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="keyword">let</span> sum = arr.reduce(<span class="function">(<span class="params">accumulator, currentValue</span>) =&gt;</span> accumulator + currentValue)</span><br></pre></td></tr></table></figure>
+<p>拷贝数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">let</span> arrCopy = arr.slice()</span><br></pre></td></tr></table></figure>
+<h1 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h1><p>使（a==1 &amp;&amp; a==2 &amp;&amp; a==3）结果为 true</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/优化/" rel="tag"># 优化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/20/error-webpack/" rel="next" title="项目中有关webpack出现的一些问题">
+                <i class="fa fa-chevron-left"></i> 项目中有关webpack出现的一些问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/assets/images/berry.jpg" alt="半未">
+            
+              <p class="site-author-name" itemprop="name">半未</p>
+              <p class="site-description motion-element" itemprop="description">什么乱七八糟的, 想好了再说~~~</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#条件判断"><span class="nav-number">1.</span> <span class="nav-text">条件判断</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#if-else"><span class="nav-number">1.1.</span> <span class="nav-text">if-else</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多个-if…-else-if…"><span class="nav-number">1.2.</span> <span class="nav-text">多个 if… else if…</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个-if-中的多个条件判断"><span class="nav-number">1.3.</span> <span class="nav-text">一个 if 中的多个条件判断</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用数据和符号，-在可读范围内"><span class="nav-number">2.</span> <span class="nav-text">利用数据和符号， 在可读范围内</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#避免使用-for…in"><span class="nav-number">3.</span> <span class="nav-text">避免使用 for…in</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#尽可能的使用内置方法"><span class="nav-number">4.</span> <span class="nav-text">尽可能的使用内置方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思考题"><span class="nav-number">5.</span> <span class="nav-text">思考题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">半未</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

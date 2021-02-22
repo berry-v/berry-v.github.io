@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="面试,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="整理一份面试题， 用于面试时做个提示">
+<meta name="keywords" content="面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试题">
+<meta property="og:url" content="http://yoursite.com/2019/02/18/interview-question/index.html">
+<meta property="og:site_name" content="半未">
+<meta property="og:description" content="整理一份面试题， 用于面试时做个提示">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-13T02:39:21.857Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试题">
+<meta name="twitter:description" content="整理一份面试题， 用于面试时做个提示">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/18/interview-question/">
+
+
+
+
+
+  <title>面试题 | 半未</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">半未</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">半未</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/18/interview-question/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="半未">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/images/berry.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="半未">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">面试题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-18T11:46:53+08:00">
+                2019-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>整理一份面试题， 用于面试时做个提示</p>
+<a id="more"></a>
+<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><hr>
+<ol>
+<li><p><strong>简述一下你对 HTML 语义化的理解，知道的语义化标签</strong></p>
+<blockquote>
+<p>直观的认识标签对于搜索引擎的抓取有好处，用正确的标签做正确的事情！<br>HTML 语义化就是让页面的内容结构化，便于对浏览器，搜索引擎解析;<br>在没有样式 css 情况下也以一种文档格式显示，并且是容易阅读。搜索引擎的爬虫依赖于标记来确定上下文和各个关键字的权重，利于 SEO。<br>在阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。</p>
+</blockquote>
+</li>
+<li><p><strong>html5 有哪些新特性</strong></p>
+<blockquote>
+<p>HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加<br>绘画 canvas<br>用于媒介回放的 video 和 auto 元素;<br>本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失;<br>sessionStorage 的数据在浏览器关闭后自动删除;<br>语意化更好的内容元素，比如 article、footer、header、nav、section;<br>表单控件：calendar、date、time、url、search;</p>
+</blockquote>
+</li>
+<li><p><strong>html5 哪些操作可以 SEO 优化</strong></p>
+<blockquote>
+<p>title 标签;meta 标签;header 标签;footer 标签;元标签（meta 标签）;导航标签（nav 标签）;文章标签（article 标签）;左或右侧标签（aside 标签）</p>
+</blockquote>
+</li>
+<li><p><strong>默认情况下，使用 h1 标签会形成什么效果?</strong></p>
+<blockquote>
+<p>加粗、大号文字</p>
+</blockquote>
+</li>
+<li><p><strong>列举几个行内元素和块级元素, 说说他们的特性</strong></p>
+<blockquote>
+<p>块级元素：默认宽度 100%(占满一行),垂直方向排列,自动换行,可以使用 CSS 设置宽度高度<br>常用的块级元素有 div、 p、 h1-h6、ol、ul、dl、table、address、blockquote、form<br>内联元素：默认宽度由内容撑开(内容多宽、宽度就占多宽),水平方向排列,width 无效,height 无效,margin 上下无效，padding 上下无效<br>常用的内联元素有:a、span、br、i、em、strong、label、q、var、cite<br>常用的行内块元素有：img、input</p>
+</blockquote>
+</li>
+<li><p><strong>在新窗口打开链接的方法是？</strong></p>
+<blockquote>
+<p>target:_blank</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<hr>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><hr>
+<ol>
+<li><p><strong>CSS 的盒子模型</strong></p>
+<blockquote>
+<p>border，margin,padding<br>box-sizing 属性<br>content-box:这是默认样式指定 CSS 标准。测量 width 和 height 属性只包括的内容，但不是 border, margin, 或者 padding。<br>border-box:widt eight 属性包括 padding 和 border，但不是 margin。这是盒模型的文档时，Internet Explorer 使用 Quirks 模式。<br>padding-box:wid height 属性包括 padding 的大小，不包括 border 和 margin</p>
+</blockquote>
+</li>
+<li><p><strong>盒子水平垂直居中</strong></p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center"</span>&gt;</span>Center<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>display:flex</p>
+</blockquote>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#999</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>position: absolute(同 position:absolute 一样， position:relative 也同样可以使元素居中， 且有多种方法。思路基本同 position:absolute 一样)</p>
+</blockquote>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%);</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#999</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 或者 */</span></span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin</span>: -<span class="number">50px</span> auto auto -<span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#999</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*再或者*/</span></span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#999</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>css3 新特性</strong></p>
+<blockquote>
+<p>颜色：新增 RGBA、HSLA 模式<br>文字阴影(text-shadow)<br>边框：圆角（border-radius）边框阴影：box-shadow<br>盒子模型：box-sizing<br>背景：background-size 设置背景图片的尺寸，background-origin 设置背景图片的原点，background-clip 设置背景图片的裁剪区域，以“，”分隔可以设置多背景，用于自适应布局<br>渐变：linear-gradient、radial-gradient<br>过渡：transition 可实现动画<br>自定义动画<br>在 CSS3 中唯一引入的伪元素是::selection<br>多媒体查询、多栏布局<br>border-image<br>2D 转换：transform:translate(x,y)rotate(x,y)skew(x,y)scale(x,y)<br>3D 转换</p>
+</blockquote>
+</li>
+<li><p><strong>如何实现半透明边框、圆角边框、怎么添加阴影</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><strong>谈谈 css3 动画 transform、animation 和 transition</strong><blockquote>
+</blockquote>
+</li>
+<li><strong>用过哪些 CSS 预处理器，介绍下它们的特性（Less、Sass、Stylus）</strong><blockquote>
+</blockquote>
+</li>
+<li><p><strong>CSS 清除浮动的几种方法</strong></p>
+<blockquote>
+<p>使用带 clear 属性的空标签<br>使用 css 的 overflow 属性<br>使用 css 的伪元素:after 和 zoom(zoom 是为了兼容 IE6，7)<br>以浮制浮（父级同时浮动）<br>给父元素添加 overflow：hidden 清除浮动方法;<br>父级设置成 inline-block;<br>结尾处加 br 标签 clear:both。</p>
+</blockquote>
+</li>
+<li><p><strong>CSS 隐藏元素的几种方法</strong></p>
+<blockquote>
+<p>display:none<br>visiblity:hidden<br>height:0<br>opacity: 0</p>
+</blockquote>
+</li>
+<li><p><strong>css 选择器优先级是怎样的</strong></p>
+<blockquote>
+<p>!important&gt;行内样式&gt;id 选择器&gt;类选择器&gt;标签选择器&gt;通配符&gt;继承</p>
+</blockquote>
+</li>
+<li><p><strong>列举几个可以继承的和不可继承的 css 属性</strong></p>
+<blockquote>
+<p>可继承的属性：font-size, font-family, color<br>不可继承的样式：border, padding, margin, width, height</p>
+</blockquote>
+</li>
+<li><p><strong>box-sizing、transition、translate 分别是什么？</strong></p>
+<blockquote>
+<p>box-sizing:用来指定模型的大小的计算方式。主要分为 border-box(从边框固定盒子大小)、content-box(从内容固定盒子大小)两种计算方式。<br>transition:当前元素只要有”属性”发生变化时，可以平滑的进行过渡。通过 transition-propety 设置过渡属性;transition-duration 设置过渡时间;transition-timing-function 设置过渡速度;transition-delay 设置过渡延时。<br>translate：通过移动改变元素的位置;有 x,y,z 三个属性</p>
+</blockquote>
+</li>
+<li><p><strong>display 有哪些值？说明它们的作用。</strong></p>
+<blockquote>
+<p>block 块类型。默认宽度为父元素宽度，可设置宽高，换行显示。<br>none 缺省值。像行内元素类型一样显示。<br>inline 行内元素类型。默认宽度为内容宽度，不可设置宽高，同行显示。<br>inline-block 默认宽度为内容宽度，可以设置宽高，同行显示。<br>list-item 像块类型元素一样显示，并添加样式列表标记。<br>table 此元素会作为块级表格来显示。<br>inherit 规定应该从父元素继承 display 属性的值。</p>
+</blockquote>
+</li>
+<li><p><strong>px、em、rem 的区别</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>什么是响应式设计？响应式设计的基本原理是什么？</strong></p>
+<blockquote>
+<p>响应式网站设计是一个网站能够兼容多个终端，而不是为每一个终端做一个特定的版本。<br>基本原理是通过媒体查询检测不同的设备屏幕尺寸做处理。</p>
+</blockquote>
+</li>
+<li><p><strong>弹性布局 flex</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>CSS 优化、提高性能的方法有哪些</strong></p>
+<blockquote>
+<p>避免过度约束<br>避免后代选择符<br>避免链式选择符<br>使用紧凑的语法<br>避免不必要的命名空间<br>避免不必要的重复<br>最好使用表示语义的名字。一个好的类名应该是描述他是什么而不是像什么<br>避免！important，可以选择其他选择器<br>尽可能的精简规则，你可以合并不同类里的重复规则</p>
+</blockquote>
+</li>
+<li><p><strong>怎么让 Chrome 支持小于 12px 的文字？</strong></p>
+<blockquote>
+<p>使用 transform 缩放 transform:scale(0.8)</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<hr>
+<h1 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h1><hr>
+<ol>
+<li><p><strong>谈谈 BOM 与 DOM 区别</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>JavaScript 有哪些数据类型？</strong></p>
+<blockquote>
+<p>对变量的作用域的理解<br>原生对象，原生对象的具体方法<br>列举几个 js 中字符串操作函数</p>
+</blockquote>
+</li>
+<li><p><strong>循环一个数组有哪些方法?for 循环优化（提高效率）？every、some、forEach、map、filter 区别</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>html5 离线存储有哪些, 请描述一下 cookies, sessionstorage 和 localstorage 的区别</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>instanceof 和 typeof</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>new 操作符具体干了什么</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>作用域与作用域链和闭包</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>闭包是什么,有什么特性,对页面有什么影响,简要介绍你理解的闭包</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>原型与原型连</strong></p>
+<blockquote>
+<p>谈谈 This 对象的理解</p>
+</blockquote>
+</li>
+<li><p><strong>创建 ajax 过程, ajax 请求的时候 get 和 post 方式的区别</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>es6、用过哪些</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>apply 和 call 的作用和区别</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>类型转换（例举几种强制类型转换和隐式类型转换）</strong></p>
+<blockquote>
+<p>强制: (通过方法转换)parseInt(), parseFloat(), Number(), String(), toString(), Boolean() 等<br>隐式: ==, !!, &gt;=, &lt;=, !=, +, -, /, *, %, &gt;, &lt;, +=, -=, –, ++, &amp;&amp;, !, || 等</p>
+</blockquote>
+</li>
+<li><p><strong>列举常用的操作数组的方法</strong></p>
+<blockquote>
+<p>数组方法 pop push unshift shift</p>
+</blockquote>
+</li>
+<li><p><strong>深浅拷贝</strong></p>
+<blockquote>
+<p>Object.assign({}, obj) //只能深拷贝一层对象<br>JSON.parse(JSON.stringify(obj)) //只在纯数据对象时使用<br>遍历对象属性， 单个赋值<br>var obj2 = {…obj1}</p>
+</blockquote>
+</li>
+<li><p><strong>事件冒泡</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>js 如何判断网页中图片加载成功或者失败？</strong></p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onerror</span><br><span class="line">&lt;element onerror=<span class="string">"myScript"</span>&gt;</span><br><span class="line">object.onerror=<span class="function"><span class="params">()</span>=&gt;</span>&#123;myScript&#125;;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p><strong>js 函数节流</strong></p>
+<blockquote>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h3 id="JS-场景"><a href="#JS-场景" class="headerlink" title="JS 场景"></a>JS 场景</h3><ol>
+<li><p><strong>使（a==1 &amp;&amp; a==2 &amp;&amp; a==3）结果为 true</strong></p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">defineProperty</span><br><span class="line">defineProperties</span><br><span class="line">valueOf</span><br><span class="line">toString</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>有数组[1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1]， 最快的去重方法</strong></p>
+<blockquote>
+<p>Set<br>循环判断</p>
+</blockquote>
+</li>
+<li><p><strong>假设现在有几个数组， 数组中分别有多种字符串标示出来的状态 (比如: ERROR: ‘错误’, SERIOUS: ‘严重问题’, GENERAL: ‘一般问题’, NORMAL: ‘正常’), 需要分别找出这几个数组中最严重的</strong>状态</p>
+<blockquote>
+</blockquote>
+</li>
+</ol>
+<hr>
+<hr>
+<h1 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h1><hr>
+<h2 id="VUE"><a href="#VUE" class="headerlink" title="VUE"></a>VUE</h2><hr>
+<ol>
+<li><p><strong>vue 双向绑定原理</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>简单描述各个生命周期具体适合哪些场景</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>如何让 CSS 只在当前组件中起作用</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>如何缓存组件避免重新渲染</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>组件的作用以及封装 vue 组件的过程</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>对 vuex 的看法</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>vue 如何实现父子组件通信，以及非父子组件通信</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>为什么要选 vue，与其它框架对比的优势和劣势</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>如何在 vue 中使用第三方 js 库， 比如 axios</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>v-if 和 v-show 的区别</strong></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p><strong>在使用 vue 的过程中都遇到一些什么样的问题， 踩过什么样的坑</strong></p>
+<blockquote>
+</blockquote>
+</li>
+</ol>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><hr>
+<h2 id="Angular"><a href="#Angular" class="headerlink" title="Angular"></a>Angular</h2><hr>
+<hr>
+<h1 id="构建工具"><a href="#构建工具" class="headerlink" title="构建工具"></a>构建工具</h1><hr>
+<h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><ol>
+<li><p><strong>webpack 的配置文件一般是哪几部分构成的?如何进行项目打包优化?</strong></p>
+</li>
+<li><p><strong>什么是 webpack 和 grunt 和 gulp 有什么不同</strong></p>
+</li>
+<li><p><strong>什么是 Loader? 什么是 Plugin?</strong></p>
+<blockquote>
+<p>Loaders 是用来告诉 webpack 如何转化处理某一类型的文件，并且引入到打包出的文件中<br>实现对不同格式的文件的处理，比如说将 scss 转换为 css，或者 typescript 转化为 js<br>转换这些文件，从而使其能够被添加到依赖图中<br>loader 是 webpack 最重要的部分之一，通过使用不同的 Loader，我们能够调用外部的脚本或者工具，实现对不同格式文件的处理<br>Plugin 是用来自定义 webpack 打包过程的方式，一个插件是含有 apply 方法的一个对象，通过这个方法可以参与到整个 webpack 打包的各个流程(生命周期)。</p>
+</blockquote>
+</li>
+<li><p><strong>如何可以自动生成 webpack 配置？</strong></p>
+<blockquote>
+<p>webpack-cli /vue-cli /etc 脚手架工具</p>
+</blockquote>
+</li>
+<li><p><strong>什么是模块热更新？</strong></p>
+<blockquote>
+<p>模块热更新是 webpack 的一个功能，他可以使得代码修改过后不用刷新浏览器就可以更新，是高级版的自动刷新浏览器。<br>devServer 中通过 hot 属性可以空时模块的热替换</p>
+</blockquote>
+</li>
+<li><p><strong>列举几个常见的 loader</strong></p>
+<blockquote>
+<p>file-loader：把文件输出到一个文件夹中，在代码中通过相对 URL 去引用输出的文件<br>url-loader：和 file-loader 类似，但是能在文件很小的情况下以 base64 的方式把文件内容注入到代码中去<br>source-map-loader：加载额外的 Source Map 文件，以方便断点调试<br>image-loader：加载并且压缩图片文件<br>babel-loader：把 ES6 转换成 ES5<br>css-loader：加载 CSS，支持模块化、压缩、文件导入等特性<br>style-loader：把 CSS 代码注入到 JavaScript 中，通过 DOM 操作去加载 CSS。<br>eslint-loader：通过 ESLint 检查 JavaScript 代码</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<hr>
+<h1 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h1><ol>
+<li><p><strong>对于前端自动化构建工具有了解,简单介绍一下</strong></p>
+</li>
+<li><p><strong>减少页面加载时间的方法,常见的网页性能优化方法</strong></p>
+</li>
+<li><p><strong>引起内存泄漏的操作有哪如？</strong></p>
+</li>
+<li><p><strong>如果在一年内打算掌握的一项技术是什么</strong></p>
+</li>
+<li><p><strong>了解 Node 么?Node 的使用场景都有哪</strong></p>
+</li>
+<li><p><strong>工作中遇到的一些问题， 是怎么解决的</strong></p>
+</li>
+</ol>
+<style>
+ol{padding-left: 0;}
+</style>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/18/css-layout/" rel="next" title="总结 CSS 布局方式">
+                <i class="fa fa-chevron-left"></i> 总结 CSS 布局方式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/20/error-webpack/" rel="prev" title="项目中有关webpack出现的一些问题">
+                项目中有关webpack出现的一些问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/assets/images/berry.jpg" alt="半未">
+            
+              <p class="site-author-name" itemprop="name">半未</p>
+              <p class="site-description motion-element" itemprop="description">什么乱七八糟的, 想好了再说~~~</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS"><span class="nav-number">3.</span> <span class="nav-text">JS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-场景"><span class="nav-number">3.0.1.</span> <span class="nav-text">JS 场景</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#框架"><span class="nav-number">4.</span> <span class="nav-text">框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VUE"><span class="nav-number">4.1.</span> <span class="nav-text">VUE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React"><span class="nav-number">4.2.</span> <span class="nav-text">React</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Angular"><span class="nav-number">4.3.</span> <span class="nav-text">Angular</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构建工具"><span class="nav-number">5.</span> <span class="nav-text">构建工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack"><span class="nav-number">5.0.1.</span> <span class="nav-text">webpack</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其它"><span class="nav-number">6.</span> <span class="nav-text">其它</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">半未</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
